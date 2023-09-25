@@ -15,6 +15,9 @@ namespace MyStack
         public int Count { get { return _count; } }
         public StackNode<T>? First { get { return _first; } }
 
+        public event EventHandler<StackEventArg<T>>? ItemPushed;
+
+        public event EventHandler<StackEventArg<T>>? ItemPopped;
         public object SyncRoot => this;
 
         public bool IsSynchronized => false;
@@ -108,7 +111,15 @@ namespace MyStack
             }
             _count = 0;
         }
-       
+        protected virtual void OnItemPushed(T item)
+        {
+            ItemPushed?.Invoke(this, new StackEventArg<T>(item, "Значення додано"));
+        }
+
+        protected virtual void OnItemPopped(T item)
+        {
+            ItemPopped?.Invoke(this, new StackEventArg<T>(item, "Значення видалено"));
+        }
         public IEnumerator<T> GetEnumerator()
         {
             return new MyEnumerator(this);
