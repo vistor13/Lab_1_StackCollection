@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+
 namespace MyStack
 {
     public class MyStackCollection<T> : IEnumerable<T>, ICollection
@@ -41,7 +42,7 @@ namespace MyStack
                 throw new InvalidOperationException("The stack is empty.");
             T item = _first!.Data;
             _first = _first.NextElement;
-            _count--; 
+            _count--;
             return item;
         }
         public T Peek()
@@ -54,7 +55,7 @@ namespace MyStack
         {
             if (array == null) throw new ArgumentNullException(nameof(array), "Array is null");
             if (index < 0 || index >= array.Length) throw new ArgumentOutOfRangeException(nameof(index));
-            if (this.Count > array.Length - index) throw new ArgumentException(nameof(this.Count));
+            if (Count > array.Length - index) throw new ArgumentException(nameof(Count));
 
             StackNode<T>? current = _first;
 
@@ -91,7 +92,7 @@ namespace MyStack
         {
             if (_count != 0)
             {
-                result = this.Pop();
+                result = Pop();
                 return true;
             }
             result = default!;
@@ -99,9 +100,9 @@ namespace MyStack
         }
         public void Clear()
         {
-            while (this.Count != 0)
+            while (Count != 0)
             {
-                this.Pop();
+                Pop();
             }
             _count = 0;
         }
