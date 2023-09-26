@@ -8,7 +8,7 @@ namespace MyCollection
         public static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.Unicode;
-            StackOperationsManager<string> stackOperation = new StackOperationsManager<string>(strings);
+            StackOperationsManager<string> stackOperation = new StackOperationsManager<string>();
             CommandExecutor<string> commandExecutor = new CommandExecutor<string>(stackOperation);
             CommandRunner<string> commandRuner = new CommandRunner<string>(commandExecutor);
             commandRuner.Runner();

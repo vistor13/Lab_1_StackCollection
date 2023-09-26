@@ -9,9 +9,9 @@ namespace MyStack.Menu
     public class StackOperationsManager<T>
     {
         private readonly MyStackCollection<T> _stack;
-        public StackOperationsManager(MyStackCollection<T> stack)
+        public StackOperationsManager()
         {
-            _stack = stack;
+            _stack = new MyStackCollection<T>();
         }
         public void WriteStack()
         {
