@@ -1,6 +1,4 @@
-﻿
-
-namespace MyStack.Menu
+﻿namespace MyStack.Menu
 {
     public class CommandExecutor<T>
     {

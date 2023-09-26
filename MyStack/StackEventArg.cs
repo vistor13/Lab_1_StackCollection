@@ -1,5 +1,4 @@
-﻿
-namespace MyStack
+﻿namespace MyStack
 {
     public class StackEventArg<T>
     {

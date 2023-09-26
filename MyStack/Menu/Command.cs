@@ -1,5 +1,4 @@
-﻿
-namespace MyStack.Menu
+﻿namespace MyStack.Menu
 {
     public enum Command
     {
