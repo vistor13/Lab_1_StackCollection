@@ -3,7 +3,7 @@ namespace MyStack.Menu
 {
     public enum Command
     {
-        
+        Exit,
         WriteStack,
         Push,
         Peek,

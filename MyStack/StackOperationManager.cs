@@ -75,7 +75,10 @@ namespace MyStack
             T item = (T)Convert.ChangeType(input!, typeof(T));
             Console.WriteLine($"  Stack.Contains({item}) = {_stack.Contains(item)}");
         }
-        
+        public void Exit()
+        {
+            Environment.Exit(0);
+        }
         private void ExceptionCountIsNull()
         {
             if (_stack.Count == 0)
