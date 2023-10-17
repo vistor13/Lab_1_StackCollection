@@ -104,7 +104,6 @@ namespace MyStack
             {
                 Pop();
             }
-            _count = 0;
         }
         protected virtual void OnItemPushed(T item)
         {

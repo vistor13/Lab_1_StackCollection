@@ -3,7 +3,7 @@ using MyStack;
 
 namespace Stack.Tests
 {
-    public class StackPushingTests
+    public class StackPushTests
     {
         [Theory]
         [MemberData(nameof(DataBaseForTesting.DataForTesting), MemberType = typeof(DataBaseForTesting))]
@@ -55,6 +55,6 @@ namespace Stack.Tests
 
             Assert.Equal((values.Length * 2)-1, stack.Count);
         }
-
+       
     }
 }
