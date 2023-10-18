@@ -7,20 +7,14 @@ using System.Threading.Tasks;
 
 namespace Stack.Tests
 {
-    public class StackClearTests
+    public class StackCopyToTests
     {
+
         [Theory]
         [MemberData(nameof(DataBaseForTesting.DataForTesting), MemberType = typeof(DataBaseForTesting))]
-        public void Clear_StackShouldBeEmpty<T>(T[] values)
+        public void CopyTo_NotEmptyStack_ShouldReturnTrueAndDontRemoveItems<T>(T[] values)
         {
-            //Arange
-            var stack = new MyStackCollection<T>(values);
-
-            //Act
-            stack.Clear();
-            //Assert
-
-            Assert.Empty(stack);
+            
         }
     }
 }

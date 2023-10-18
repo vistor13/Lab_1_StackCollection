@@ -1,34 +1,36 @@
 ﻿using MyStack;
-
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Stack.Tests
 {
-    public class StackPopTests
+    public class StackTryPopTests
     {
         [Theory]
         [MemberData(nameof(DataBaseForTesting.EmptyStack), MemberType = typeof(DataBaseForTesting))]
-        public void Pop_WhenEmptyCollection_ShouldInvalidOperationException<T>(MyStackCollection<T> stack)
+        public void TryPop_EmptyStack_ShouldReturnFalse<T>(MyStackCollection<T> stack)
         {
-            Assert.Throws<InvalidOperationException>(() => stack.Pop());
+            var boolResult = stack.TryPop(out T value);
+            Assert.False(boolResult);
+            Assert.Equal(value, default);
         }
+
 
         [Theory]
         [MemberData(nameof(DataBaseForTesting.DataForTesting), MemberType = typeof(DataBaseForTesting))]
-        public void Peek_WhenStackNotEmpty_ShoudReturnFirstElementAndRemoving<T>(T[] values)
+        public void TryPop_NotEmptyStack_ShouldReturnTrueAndDontRemoveItems<T>(T[] values)
         {
             var stack = new MyStackCollection<T>(values);
 
+            
             for (int i = values.Length - 1; i >= 0; i--)
             {
-                Assert.Equal(values[i], stack.Pop());
+                var boolResult = stack.TryPop(out T value);
+                Assert.Equal(values[i], value);
+                Assert.True(boolResult);
             }
 
             Assert.Empty(stack);
