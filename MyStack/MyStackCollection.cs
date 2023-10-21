@@ -61,7 +61,7 @@ namespace MyStack
 
             while (current != null)
             {
-                array.SetValue(current, index++);
+                array.SetValue(current.Data, index++);
                 current = current.NextElement;
             }
         }

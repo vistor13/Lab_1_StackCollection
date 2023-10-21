@@ -18,8 +18,8 @@ namespace Stack.Tests
 
             //Act
             stack.Clear();
-            //Assert
 
+            //Assert
             Assert.Empty(stack);
         }
     }

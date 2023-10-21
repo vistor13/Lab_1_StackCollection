@@ -19,10 +19,10 @@ namespace Stack.Tests
             for (int i = values.Length - 1; i >= 0; i--)
             {
                 stack.Pop();
-
                 Assert.False(stack.Contains(values[i]));
             }
         }
+
         [Theory]
         [MemberData(nameof(DataBaseForTesting.DataForTesting), MemberType = typeof(DataBaseForTesting))]
         public void Contains_WhenHasElement_ShouldReturTrue<T>(T[] values)
