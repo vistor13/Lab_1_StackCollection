@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -22,13 +23,19 @@ namespace Stack.Tests
 
         [Theory]
         [MemberData(nameof(DataBaseForTesting.DataForTesting), MemberType = typeof(DataBaseForTesting))]
-        public void Peek_WhenStackNotEmpty_ShoudReturnFirstElementAndRemoving<T>(T[] values)
+        public void Pop_WhenStackNotEmpty_ShoudReturnFirstElementAndRemoving<T>(T[] values)
         {
             var stack = new MyStackCollection<T>(values);
+            var eventTriger = false;
 
             for (int i = values.Length - 1; i >= 0; i--)
             {
                 Assert.Equal(values[i], stack.Pop());
+                stack.ItemPopped += (sender, e) =>
+                {
+                    eventTriger = true;
+                    Assert.True(eventTriger);
+                };
             }
 
             Assert.Empty(stack);

@@ -21,7 +21,7 @@ namespace Stack.Tests
 
         [Theory]
         [MemberData(nameof(DataBaseForTesting.DataForTesting), MemberType = typeof(DataBaseForTesting))]
-        public void TryPop_NotEmptyStack_ShouldReturnTrueAndDontRemoveItems<T>(T[] values)
+        public void TryPop_NotEmptyStack_ShouldReturnTrueAndRemoveItems<T>(T[] values)
         {
             var stack = new MyStackCollection<T>(values);
 

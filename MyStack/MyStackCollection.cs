@@ -35,6 +35,7 @@ namespace MyStack
             nodePush.NextElement = _first;
             _first = nodePush;
             _count++;
+            ItemPushed?.Invoke(this, new StackEventArg<T>(item, "Значення додано"));
         }
         public T Pop()
         {
@@ -43,6 +44,7 @@ namespace MyStack
             T item = _first!.Data;
             _first = _first.NextElement;
             _count--;
+            ItemPopped?.Invoke(this, new StackEventArg<T>(item, "Значення видалено"));
             return item;
         }
         public T Peek()
@@ -105,15 +107,7 @@ namespace MyStack
                 Pop();
             }
         }
-        protected virtual void OnItemPushed(T item)
-        {
-            ItemPushed?.Invoke(this, new StackEventArg<T>(item, "Значення додано"));
-        }
-
-        protected virtual void OnItemPopped(T item)
-        {
-            ItemPopped?.Invoke(this, new StackEventArg<T>(item, "Значення видалено"));
-        }
+  
         public IEnumerator<T> GetEnumerator()
         {
             return new MyEnumerator(this);
