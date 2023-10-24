@@ -1,9 +1,6 @@
-﻿
-using MyStack;
+﻿using MyStack;
 
-using System.Collections.Generic;
-
-namespace Stack.Tests
+namespace Stack.Tests.StackTests
 {
     public class StackConstructorTests
     {

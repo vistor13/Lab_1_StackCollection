@@ -1,7 +1,7 @@
 ﻿
 using MyStack;
 
-namespace Stack.Tests
+namespace Stack.Tests.StackTests
 {
     public class StackPushTests
     {
@@ -10,15 +10,15 @@ namespace Stack.Tests
         public void Push_EmptyCollection_ShouldAddToElement<T>(T[] values)
         {
             var eventTriger = true;
-            var stack=new MyStackCollection<T>();
+            var stack = new MyStackCollection<T>();
 
-         
+
             foreach (var item in values)
             {
                 stack.Push(item);
             }
 
-            stack.ItemPushed += (sender, e) =>eventTriger = true;
+            stack.ItemPushed += (sender, e) => eventTriger = true;
 
             Assert.Equal(values.Length, stack.Count);
             Assert.True(eventTriger);
@@ -38,7 +38,7 @@ namespace Stack.Tests
             }
             //Assert
 
-            Assert.Equal(values.Length*2, stack.Count);
+            Assert.Equal(values.Length * 2, stack.Count);
         }
     }
 }

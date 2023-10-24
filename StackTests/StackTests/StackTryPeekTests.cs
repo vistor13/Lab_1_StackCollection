@@ -1,6 +1,6 @@
 ﻿using MyStack;
 
-namespace Stack.Tests
+namespace Stack.Tests.StackTests
 {
     public class StackTryPeekTests
     {
@@ -22,7 +22,7 @@ namespace Stack.Tests
             var boolResult = stack.TryPeek(out T value);
 
             Assert.True(boolResult);
-            Assert.Equal(value, values[values.Length-1]);
+            Assert.Equal(value, values[values.Length - 1]);
             Assert.Equal(stack.Count, values.Length);
 
         }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stack.Tests
+namespace Stack.Tests.StackTests
 {
     public class StackTryPopTests
     {
@@ -25,7 +25,7 @@ namespace Stack.Tests
         {
             var stack = new MyStackCollection<T>(values);
 
-            
+
             for (int i = values.Length - 1; i >= 0; i--)
             {
                 var boolResult = stack.TryPop(out T value);

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stack.Tests
+namespace Stack.Tests.StackTests
 {
     public class StackPeekTests
     {
@@ -22,8 +22,8 @@ namespace Stack.Tests
         public void Peek_WhenStackNotEmpty_ShoudReturnFirstElementWithoutRemoving<T>(T[] values)
         {
             var stack = new MyStackCollection<T>(values);
-            
-            Assert.Equal(values[values.Length-1], stack.Peek());
+
+            Assert.Equal(values[values.Length - 1], stack.Peek());
             Assert.Equal(stack.Count, values.Count());
         }
     }

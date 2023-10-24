@@ -1,6 +1,6 @@
 ﻿using MyStack;
 
-namespace Stack.Tests
+namespace Stack.Tests.StackTests
 {
     public class StackCopyToTests
     {
@@ -22,7 +22,7 @@ namespace Stack.Tests
         {
             // Arrange
             MyStackCollection<T> stack = new MyStackCollection<T>(values);
-            
+
             T[] array = null;
 
             // Act and Assert
@@ -39,7 +39,7 @@ namespace Stack.Tests
             T[] array = new T[stack.Count];
 
             // Act and Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => stack.CopyTo(array, stack.Count+2));
+            Assert.Throws<ArgumentOutOfRangeException>(() => stack.CopyTo(array, stack.Count + 2));
         }
 
         [Theory]
@@ -48,12 +48,12 @@ namespace Stack.Tests
         {
             // Arrange
             MyStackCollection<T> stack = new MyStackCollection<T>(values);
-          
-            char[] array = new char[stack.Count-1];
+
+            char[] array = new char[stack.Count - 1];
 
             // Act and Assert
             Assert.Throws<ArgumentException>(() => stack.CopyTo(array, 0));
         }
-        
+
     }
 }
