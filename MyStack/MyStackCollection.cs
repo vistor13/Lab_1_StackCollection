@@ -151,6 +151,11 @@ namespace MyStack
             {
 
             }
+            public void Count11()
+            {
+                _current = 11;
+                Console.WriteLine();
+            }
 
             public bool MoveNext()
             {
